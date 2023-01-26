@@ -4,17 +4,24 @@ namespace App\Controller;
 
 use App\Entity\User;
 use App\Form\UserType;
+use App\Repository\UserRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Doctrine\Persistence\ManagerRegistry;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
 class UserController extends AbstractController
 {
 
-    #[Route('/users', name: 'user_list')]
-    public function listAction()
+    public function __construct(private ManagerRegistry $doctrine, private UserPasswordHasherInterface $hasher)
     {
-        return $this->render('user/list.html.twig', ['users' => $this->getDoctrine()->getRepository('App:User')->findAll()]);
+    }
+
+    #[Route('/users', name: 'user_list')]
+    public function listAction(UserRepository $user)
+    {
+        return $this->render('user/list.html.twig', ['users' => $user->findAll()]);
     }
 
     #[Route('/users/create', name: 'user_create')]
@@ -25,9 +32,9 @@ class UserController extends AbstractController
 
         $form->handleRequest($request);
 
-        if ($form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $password = $this->get('security.password_encoder')->encodePassword($user, $user->getPassword());
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em = $this->doctrine->getManager();
+            $password = $this->hasher->hashPassword($user, $user->getPassword());
             $user->setPassword($password);
 
             $em->persist($user);
@@ -49,11 +56,12 @@ class UserController extends AbstractController
 
         $form->handleRequest($request);
 
-        if ($form->isValid()) {
-            $password = $this->get('security.password_encoder')->encodePassword($user, $user->getPassword());
+        if ($form->isSubmitted() && $form->isValid()) {
+            $password = $this->hasher->hashPassword($user, $user->getPassword());
             $user->setPassword($password);
-
-            $this->getDoctrine()->getManager()->flush();
+            $em = $this->doctrine->getManager();
+            $em->persist($user);
+            $this->doctrine->getManager()->flush();
 
             $this->addFlash('success', "L'utilisateur a bien été modifié");
 
