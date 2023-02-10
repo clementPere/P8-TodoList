@@ -20,6 +20,7 @@ class AppFixtures extends Fixture implements DependentFixtureInterface
     {
         return [
             UserFixtures::class,
+            TaskFixtures::class
         ];
     }
 }
