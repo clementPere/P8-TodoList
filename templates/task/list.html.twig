@@ -6,25 +6,17 @@
     <a href="{{ path('task_create') }}" class="btn btn-info pull-right">Créer une tâche</a>
     <div class="row">
         {% for task in tasks %}
-        <div class="col-sm-4 col-lg-4 col-md-4">
-            <div class="thumbnail">
-                <div class="caption">
-                    <h4 class="pull-right">
-                        {% if task.isDone %}<span class="glyphicon glyphicon-ok"></span>{% else %}<span class="glyphicon glyphicon-remove"></span>{% endif %}
-                    </h4>
-                    <h4><a href="{{ path('task_edit', {'id' : task.id }) }}">{{ task.title }}</a></h4>
-                    <p>{{ task.content }}</p>
+        <div class="card text-dark bg-light col-sm-4 col-lg-4 col-md-4 m-2" style="width: 19rem;">
+            <div class="card-body">
+                <h5 class="card-title"><a href="{{ path('task_edit', {'id' : task.id }) }}">{{ task.title }}</a></h5>
+                <p class="card-text" style="text-align:justify;">{{ task.content }}</p>
+                <div class="d-flex justify-content-between">
+                    <a href="{{ path('task_toggle', {'id' : task.id }) }}" class="btn btn-success btn-sm">{% if not task.isDone %}Marquer comme faite{% else %}Marquer non terminée{% endif %}</a>
+                    <a href="{{ path('task_delete', {'id' : task.id }) }}" class="btn btn-danger btn-sm pull-right">Supprimer</a>
                 </div>
-                <div>
-                    <form action="{{ path('task_toggle', {'id' : task.id }) }}">
-                        <button class="btn btn-success btn-sm pull-right">
-                            {% if not task.isDone %}Marquer comme faite{% else %}Marquer non terminée{% endif %}
-                        </button>
-                    </form>
-                    <form action="{{ path('task_delete', {'id' : task.id }) }}">
-                        <button class="btn btn-danger btn-sm pull-right">Supprimer</button>
-                    </form>
-                </div>
+                <footer class="blockquote-footer pt-4">Créé le {{ task.createdAt|date("d/m/Y") }}
+                    <cite title="Propriétaire" class="text-decoration-underline"> par {{task.user.username|capitalize}}</cite>
+                </footer>
             </div>
         </div>
         {% else %}
