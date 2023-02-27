@@ -7,9 +7,11 @@ use App\Form\TaskType;
 use App\Repository\TaskRepository;
 use DateTime;
 use Doctrine\Persistence\ManagerRegistry;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 
 class TaskController extends AbstractController
 {
@@ -17,19 +19,21 @@ class TaskController extends AbstractController
     {
     }
 
+    #[IsGranted('ROLE_USER')]
     #[Route('/tasks', name: 'task_list')]
     public function listAction(TaskRepository $task)
     {
         return $this->render('task/list.html.twig', ['tasks' => $task->findAll()]);
     }
 
+    #[IsGranted('ROLE_USER')]
     #[Route('/tasks-completed', name: 'task_list_completed')]
     public function listActionCompleted(TaskRepository $task)
     {
         return $this->render('task/list.html.twig', ['tasks' => $task->findBy(["isDone" => 1])]);
     }
 
-
+    #[IsGranted('ROLE_USER')]
     #[Route('/tasks/create', name: 'task_create')]
     public function createAction(Request $request)
     {
@@ -53,7 +57,7 @@ class TaskController extends AbstractController
         return $this->render('task/create.html.twig', ['form' => $form->createView()]);
     }
 
-
+    #[IsGranted('ROLE_USER')]
     #[Route('/tasks/{id}/edit', name: 'task_edit')]
     public function editAction(Task $task, Request $request)
     {
@@ -75,7 +79,7 @@ class TaskController extends AbstractController
         ]);
     }
 
-
+    #[IsGranted('ROLE_USER')]
     #[Route('/tasks/{id}/toggle', name: 'task_toggle')]
     public function toggleTaskAction(Task $task)
     {
@@ -87,7 +91,7 @@ class TaskController extends AbstractController
         return $this->redirectToRoute('task_list');
     }
 
-
+    #[Security("task.getUser() === user", message: "Vous n'avez pas les droits suffisants")]
     #[Route('/tasks/{id}/delete', name: 'task_delete')]
     public function deleteTaskAction(Task $task)
     {
