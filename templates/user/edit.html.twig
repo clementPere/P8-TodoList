@@ -6,9 +6,18 @@
 {% block body %}
     <div class="row">
         {{ form_start(form, {'action' : path('user_edit', {'id' : user.id})}) }}
-        {{ form_widget(form) }}
-
-        <button type="submit" class="btn btn-success pull-right">Modifier</button>
-        {{ form_end(form) }}
+        {{ form_row(form.username) }}
+        {{ form_row(form.password) }}
+        {{ form_row(form.email) }}
+        {% if is_granted('ROLE_ADMIN') %}
+            {{ form_row(form.roles) }}
+        {% endif %}
+        <div class="d-flex justify-content-between w-100">
+            <button type="submit" class="btn btn-success pull-right">Modifier</button>
+            <a href={{ path("app_home") }} class="btn btn-primary pull-right">Retour</a>
+        </div>
+        {{ form_widget(form._token) }}
+        {{ form_end(form, {'render_rest': false}) }}
+        
     </div>
 {% endblock %}

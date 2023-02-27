@@ -2,12 +2,18 @@
         <div class="container">
             <div class="d-flex flex-row-reverse my-4">
                 {% if app.user %}
-                    <a href="{{ path('app_logout') }}" class="pull-right btn btn-danger">Se déconnecter</a>
-                    {% if is_granted('ROLE_ADMIN') %}
-                        <a href="{{ path('user_create') }}" class="btn btn-primary">Créer un utilisateur</a>
-                    {% endif %}
+                    <div class="d-flex justify-content-between w-100 margin-auto">
+                        <div>
+                            {% if is_granted('ROLE_ADMIN') %}
+                                <a href="{{ path('user_create') }}" class="btn btn-primary">Créer un utilisateur</a>
+                                <a href="{{ path('user_list') }}" class="btn btn-outline-success">Liste des utilisateurs</a>
+                            {% endif %}
+                            <a href="{{ path('user_edit', {'id': app.user.id}) }}" class="btn btn-success">Modifier mon profil</a>
+                        </div>
+                        <a href="{{ path('app_logout') }}" class="btn btn-danger">Se déconnecter</a>
+                     </div>
                 {% endif %}
-
+               
                 {% if not app.user %}
                     <a href="{{ path('app_login') }}" class="btn btn-success">Se connecter</a>
                 {% endif %}
