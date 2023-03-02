@@ -15,10 +15,6 @@ class DefaultControllerTest extends WebTestCase
         $this->client = static::createClient();
     }
 
-    /**
-     *
-     * @return void
-     */
     public function authenticateAdmin(): void
     {
         $userRepository = static::getContainer()->get(UserRepository::class);

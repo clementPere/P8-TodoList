@@ -48,10 +48,8 @@ class TaskControllerTest extends DefaultControllerTest
 
     public function testUpdateIfNotLogin(): void
     {
-        $taskRepository = static::getContainer()->get(TaskRepository::class);
-        $getTask = $taskRepository->findOneBy([], ['id' => 'desc']);
-        $getTaskId = $getTask->getId();
-        $this->client->request('GET', "/tasks/$getTaskId/edit");
+        $id = $this->getTaskId();
+        $this->client->request('GET', "/tasks/$id/edit");
         $this->assertEquals(302, $this->client->getResponse()->getStatusCode());
         $this->assertEquals("/login", parse_url($this->client->followRedirect()->getUri(), PHP_URL_PATH));
     }
@@ -59,10 +57,8 @@ class TaskControllerTest extends DefaultControllerTest
     public function testUpdateIfLogin(): void
     {
         $this->authenticateUser();
-        $taskRepository = static::getContainer()->get(TaskRepository::class);
-        $getTask = $taskRepository->findOneBy([], ['id' => 'desc']);
-        $getTaskId = $getTask->getId();
-        $crawler = $this->client->request('GET', "/tasks/$getTaskId/edit");
+        $id = $this->getTaskId();
+        $crawler = $this->client->request('GET', "/tasks/$id/edit");
         $this->assertEquals(200, $this->client->getResponse()->getStatusCode());
 
         $form = $crawler->selectButton('Modifier')->form();
@@ -101,10 +97,8 @@ class TaskControllerTest extends DefaultControllerTest
 
     public function testDeleteTaskIfNotConnected()
     {
-        $taskRepository = static::getContainer()->get(TaskRepository::class);
-        $getTask = $taskRepository->findOneBy([], ['id' => 'desc']);
-        $getTaskId = $getTask->getId();
-        $this->client->request('GET', "/tasks/$getTaskId/delete");
+        $id = $this->getTaskId();
+        $this->client->request('GET', "/tasks/$id/delete");
         $this->assertEquals(302, $this->client->getResponse()->getStatusCode());
         $this->assertEquals("/login", parse_url($this->client->followRedirect()->getUri(), PHP_URL_PATH));
     }
@@ -112,20 +106,16 @@ class TaskControllerTest extends DefaultControllerTest
     public function testDeleteTaskIfConnectedButNotOwner()
     {
         $this->authenticateAdmin();
-        $taskRepository = static::getContainer()->get(TaskRepository::class);
-        $getTask = $taskRepository->findOneBy([], ['id' => 'desc']);
-        $getTaskId = $getTask->getId();
-        $this->client->request('GET', "/tasks/$getTaskId/delete");
+        $id = $this->getTaskId();
+        $this->client->request('GET', "/tasks/$id/delete");
         $this->assertEquals(403, $this->client->getResponse()->getStatusCode());
     }
 
     public function testDeleteTaskIfConnectedAndOwner()
     {
         $this->authenticateUser();
-        $taskRepository = static::getContainer()->get(TaskRepository::class);
-        $getTask = $taskRepository->findOneBy([], ['id' => 'desc']);
-        $getTaskId = $getTask->getId();
-        $this->client->request('GET', "/tasks/$getTaskId/delete");
+        $id = $this->getTaskId();
+        $this->client->request('GET', "/tasks/$id/delete");
         $this->assertEquals(302, $this->client->getResponse()->getStatusCode());
         $this->assertEquals(1, $this->client->followRedirect()->filter('div.alert-success')->count());
     }
@@ -142,5 +132,12 @@ class TaskControllerTest extends DefaultControllerTest
         $this->authenticateUser();
         $this->client->request('GET', "/tasks-completed");
         $this->assertEquals(200, $this->client->getResponse()->getStatusCode());
+    }
+
+    private function getTaskId(): int
+    {
+        $taskRepository = static::getContainer()->get(TaskRepository::class);
+        $getTask = $taskRepository->findOneBy([], ['id' => 'desc']);
+        return $getTask->getId();
     }
 }
