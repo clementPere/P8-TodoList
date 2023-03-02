@@ -24,6 +24,7 @@ class UserFixtures extends Fixture
         for ($i = 0; $i < 10; $i++) {
             $manager->persist($this->setUser($faker->firstName, ["ROLE_USER"]));
         };
+        $manager->persist($this->setUser("user", ["ROLE_USER"]));
         $manager->persist($this->setUser("admin", ["ROLE_ADMIN"]));
         $manager->flush();
     }
