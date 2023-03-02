@@ -67,8 +67,19 @@ class UserController extends AbstractController
             $em->persist($currentUser);
             $em->flush();
             $this->addFlash('success', "L'utilisateur a bien été modifié");
-            return $this->redirectToRoute('user_list');
+            return $this->redirectToRoute('app_home');
         }
         return $this->render('user/edit.html.twig', ['form' => $form->createView(), 'user' => $currentUser]);
+    }
+
+    #[IsGranted('ROLE_ADMIN')]
+    #[Route('/users/{id}/delete', name: 'user_delete')]
+    public function deleteTaskAction(User $user)
+    {
+        $em = $this->doctrine->getManager();
+        $em->remove($user);
+        $em->flush();
+        $this->addFlash('success', 'L\'utilisateur a bien été supprimée.');
+        return $this->redirectToRoute('user_list');
     }
 }
