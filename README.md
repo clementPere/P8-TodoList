@@ -54,3 +54,4 @@ An API exposing information on different phone
 
 - Run all test using `php bin/phpunit`
 - You can generate documentation of test coverage using `php bin/phpunit --coverage-html var/log/test/test-coverage`
+- If you want to view this documentation, you can drag and drop the index.html file from the test-coverage folder into your browser
