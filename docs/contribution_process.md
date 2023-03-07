@@ -19,7 +19,7 @@ Vous pouvez maintenant ajouter votre feature sur cette nouvelle branche
 
 Vous avez terminé de coder votre/vos feature(s). Il vous faut maintenant, tester votre code :
 
-- Installez l'extension php [XDebug](https://xdebug.org/docs/install), écrivez vos tests puis rendez-vous a la racine du projet et lancez la commande : `php -d xdebug.mode=coverage bin/phpunit --coverage-html=php-unit`
+- Installez l'extension php [XDebug](https://xdebug.org/docs/install), écrivez vos tests puis rendez-vous a la racine du projet et lancez la commande : `php bin/phpunit --coverage-html coverage.html --coverage-clover=clover.xml`
   Vérifiez que l'output de la commande ne vous retourne AUCUNE erreur, vérifiez également que le code coverage de l'app ne passe pas en dessous de 80%.
 
 ## Merge
