@@ -11,6 +11,7 @@ Ce projet à été mis à jour en Mars 2022, nous souhaitons conserver une appli
 Dans ce projet nous avons fait le choix d'utiliser un gitflow :
 
 ![git flow: Branch master, dev and feature](assets/gitflow-1.png)
+
 Comme expliqué ci-dessus il vous suffit de créer une nouvelle branche "from master" avec comme nom "feature/nomdemafeature".
 Vous pouvez maintenant ajouter votre feature sur cette nouvelle branche
 
