@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1677837704">
-  <project timestamp="1677837704">
+<coverage generated="1678202352">
+  <project timestamp="1678202352">
     <file name="C:\Users\clement\Dev\Formation\OpenClassrooms\P8_TodoList\src\Controller\DefaultController.php">
       <class name="App\Controller\DefaultController" namespace="global">
         <metrics complexity="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="1" elements="2" coveredelements="2"/>
@@ -109,58 +109,6 @@
       <line num="82" type="stmt" count="1"/>
       <line num="83" type="stmt" count="1"/>
       <metrics loc="86" ncloc="86" classes="1" methods="5" coveredmethods="5" conditionals="0" coveredconditionals="0" statements="31" coveredstatements="31" elements="36" coveredelements="36"/>
-    </file>
-    <file name="C:\Users\clement\Dev\Formation\OpenClassrooms\P8_TodoList\src\DataFixtures\AppFixtures.php">
-      <class name="App\DataFixtures\AppFixtures" namespace="global">
-        <metrics complexity="2" methods="2" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="5" coveredstatements="0" elements="7" coveredelements="0"/>
-      </class>
-      <line num="11" type="method" name="load" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="16" type="stmt" count="0"/>
-      <line num="19" type="method" name="getDependencies" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="21" type="stmt" count="0"/>
-      <line num="22" type="stmt" count="0"/>
-      <line num="23" type="stmt" count="0"/>
-      <line num="24" type="stmt" count="0"/>
-      <metrics loc="27" ncloc="25" classes="1" methods="2" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="5" coveredstatements="0" elements="7" coveredelements="0"/>
-    </file>
-    <file name="C:\Users\clement\Dev\Formation\OpenClassrooms\P8_TodoList\src\DataFixtures\TaskFixtures.php">
-      <class name="App\DataFixtures\TaskFixtures" namespace="global">
-        <metrics complexity="2" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="10" coveredstatements="0" elements="11" coveredelements="0"/>
-      </class>
-      <line num="16" type="method" name="load" visibility="public" complexity="2" crap="6" count="0"/>
-      <line num="18" type="stmt" count="0"/>
-      <line num="19" type="stmt" count="0"/>
-      <line num="20" type="stmt" count="0"/>
-      <line num="21" type="stmt" count="0"/>
-      <line num="22" type="stmt" count="0"/>
-      <line num="23" type="stmt" count="0"/>
-      <line num="24" type="stmt" count="0"/>
-      <line num="25" type="stmt" count="0"/>
-      <line num="26" type="stmt" count="0"/>
-      <line num="28" type="stmt" count="0"/>
-      <metrics loc="31" ncloc="31" classes="1" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="10" coveredstatements="0" elements="11" coveredelements="0"/>
-    </file>
-    <file name="C:\Users\clement\Dev\Formation\OpenClassrooms\P8_TodoList\src\DataFixtures\UserFixtures.php">
-      <class name="App\DataFixtures\UserFixtures" namespace="global">
-        <metrics complexity="4" methods="3" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="13" coveredstatements="0" elements="16" coveredelements="0"/>
-      </class>
-      <line num="15" type="method" name="__construct" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="17" type="stmt" count="0"/>
-      <line num="21" type="method" name="load" visibility="public" complexity="2" crap="6" count="0"/>
-      <line num="23" type="stmt" count="0"/>
-      <line num="24" type="stmt" count="0"/>
-      <line num="25" type="stmt" count="0"/>
-      <line num="27" type="stmt" count="0"/>
-      <line num="28" type="stmt" count="0"/>
-      <line num="29" type="stmt" count="0"/>
-      <line num="32" type="method" name="setUser" visibility="private" complexity="1" crap="2" count="0"/>
-      <line num="35" type="stmt" count="0"/>
-      <line num="36" type="stmt" count="0"/>
-      <line num="37" type="stmt" count="0"/>
-      <line num="38" type="stmt" count="0"/>
-      <line num="39" type="stmt" count="0"/>
-      <line num="40" type="stmt" count="0"/>
-      <metrics loc="43" ncloc="42" classes="1" methods="3" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="13" coveredstatements="0" elements="16" coveredelements="0"/>
     </file>
     <file name="C:\Users\clement\Dev\Formation\OpenClassrooms\P8_TodoList\src\Entity\Task.php">
       <class name="App\Entity\Task" namespace="global">
@@ -390,6 +338,6 @@
       <line num="54" type="stmt" count="16"/>
       <metrics loc="57" ncloc="57" classes="1" methods="4" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="14" coveredstatements="2" elements="18" coveredelements="4"/>
     </file>
-    <metrics files="15" loc="945" ncloc="846" classes="14" methods="66" coveredmethods="55" conditionals="0" coveredconditionals="0" statements="233" coveredstatements="186" elements="299" coveredelements="241"/>
+    <metrics files="12" loc="844" ncloc="748" classes="11" methods="60" coveredmethods="55" conditionals="0" coveredconditionals="0" statements="205" coveredstatements="186" elements="265" coveredelements="241"/>
   </project>
 </coverage>
