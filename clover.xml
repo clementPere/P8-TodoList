@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1678202352">
-  <project timestamp="1678202352">
+<coverage generated="1678263590">
+  <project timestamp="1678263590">
     <file name="C:\Users\clement\Dev\Formation\OpenClassrooms\P8_TodoList\src\Controller\DefaultController.php">
       <class name="App\Controller\DefaultController" namespace="global">
         <metrics complexity="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="1" elements="2" coveredelements="2"/>
@@ -70,7 +70,7 @@
     </file>
     <file name="C:\Users\clement\Dev\Formation\OpenClassrooms\P8_TodoList\src\Controller\UserController.php">
       <class name="App\Controller\UserController" namespace="global">
-        <metrics complexity="9" methods="5" coveredmethods="5" conditionals="0" coveredconditionals="0" statements="31" coveredstatements="31" elements="36" coveredelements="36"/>
+        <metrics complexity="10" methods="5" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="34" coveredstatements="33" elements="39" coveredelements="37"/>
       </class>
       <line num="19" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="13"/>
       <line num="21" type="stmt" count="13"/>
@@ -102,13 +102,16 @@
       <line num="69" type="stmt" count="2"/>
       <line num="70" type="stmt" count="2"/>
       <line num="72" type="stmt" count="2"/>
-      <line num="75" type="method" name="deleteTaskAction" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="75" type="method" name="deleteTaskAction" visibility="public" complexity="2" crap="2.01" count="1"/>
       <line num="79" type="stmt" count="1"/>
-      <line num="80" type="stmt" count="1"/>
       <line num="81" type="stmt" count="1"/>
       <line num="82" type="stmt" count="1"/>
-      <line num="83" type="stmt" count="1"/>
-      <metrics loc="86" ncloc="86" classes="1" methods="5" coveredmethods="5" conditionals="0" coveredconditionals="0" statements="31" coveredstatements="31" elements="36" coveredelements="36"/>
+      <line num="83" type="stmt" count="0"/>
+      <line num="85" type="stmt" count="1"/>
+      <line num="86" type="stmt" count="1"/>
+      <line num="87" type="stmt" count="1"/>
+      <line num="88" type="stmt" count="1"/>
+      <metrics loc="91" ncloc="91" classes="1" methods="5" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="34" coveredstatements="33" elements="39" coveredelements="37"/>
     </file>
     <file name="C:\Users\clement\Dev\Formation\OpenClassrooms\P8_TodoList\src\Entity\Task.php">
       <class name="App\Entity\Task" namespace="global">
@@ -162,9 +165,9 @@
       <line num="59" type="stmt" count="3"/>
       <line num="62" type="method" name="getUsername" visibility="public" complexity="1" crap="1" count="11"/>
       <line num="64" type="stmt" count="11"/>
-      <line num="67" type="method" name="setUsername" visibility="public" complexity="1" crap="1" count="3"/>
-      <line num="69" type="stmt" count="3"/>
-      <line num="71" type="stmt" count="3"/>
+      <line num="67" type="method" name="setUsername" visibility="public" complexity="1" crap="1" count="4"/>
+      <line num="69" type="stmt" count="4"/>
+      <line num="71" type="stmt" count="4"/>
       <line num="79" type="method" name="getUserIdentifier" visibility="public" complexity="1" crap="1" count="16"/>
       <line num="81" type="stmt" count="16"/>
       <line num="87" type="method" name="getRoles" visibility="public" complexity="1" crap="1" count="17"/>
@@ -183,8 +186,8 @@
       <line num="126" type="stmt" count="1"/>
       <line num="132" type="method" name="eraseCredentials" visibility="public" complexity="1" crap="1" count="1"/>
       <line num="136" type="stmt" count="1"/>
-      <line num="141" type="method" name="getTasks" visibility="public" complexity="1" crap="1" count="3"/>
-      <line num="143" type="stmt" count="3"/>
+      <line num="141" type="method" name="getTasks" visibility="public" complexity="1" crap="1" count="4"/>
+      <line num="143" type="stmt" count="4"/>
       <line num="146" type="method" name="addTask" visibility="public" complexity="2" crap="2" count="1"/>
       <line num="148" type="stmt" count="1"/>
       <line num="149" type="stmt" count="1"/>
@@ -338,6 +341,6 @@
       <line num="54" type="stmt" count="16"/>
       <metrics loc="57" ncloc="57" classes="1" methods="4" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="14" coveredstatements="2" elements="18" coveredelements="4"/>
     </file>
-    <metrics files="12" loc="844" ncloc="748" classes="11" methods="60" coveredmethods="55" conditionals="0" coveredconditionals="0" statements="205" coveredstatements="186" elements="265" coveredelements="241"/>
+    <metrics files="12" loc="849" ncloc="753" classes="11" methods="60" coveredmethods="54" conditionals="0" coveredconditionals="0" statements="208" coveredstatements="188" elements="268" coveredelements="242"/>
   </project>
 </coverage>

@@ -25,6 +25,7 @@ class UserFixtures extends Fixture
             $manager->persist($this->setUser($faker->firstName, ["ROLE_USER"]));
         };
         $manager->persist($this->setUser("user", ["ROLE_USER"]));
+        $manager->persist($this->setUser("anonyme", ["ROLE_USER"]));
         $manager->persist($this->setUser("admin", ["ROLE_ADMIN"]));
         $manager->flush();
     }

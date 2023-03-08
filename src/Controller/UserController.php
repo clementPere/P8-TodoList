@@ -74,9 +74,14 @@ class UserController extends AbstractController
 
     #[IsGranted('ROLE_ADMIN')]
     #[Route('/users/{id}/delete', name: 'user_delete')]
-    public function deleteTaskAction(User $user)
+    public function deleteTaskAction(User $user, UserRepository $userRepository)
     {
         $em = $this->doctrine->getManager();
+
+        $anonymeUser = $userRepository->findOneBy(["email" => "anonyme@gmail.com"]);
+        foreach ($user->getTasks() as $key => $value) {
+            $value->setUser($anonymeUser);
+        }
         $em->remove($user);
         $em->flush();
         $this->addFlash('success', 'L\'utilisateur a bien été supprimée.');
