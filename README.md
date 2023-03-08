@@ -1,6 +1,6 @@
-# BileMo
+# ToDo & Co
 
-An API exposing information on different phone
+A TODOLIST create with Symfony
 
 <p align="center"><a href="https://symfony.com" target="_blank">
     <img src="https://symfony.com/logos/symfony_black_02.svg">
@@ -53,5 +53,5 @@ An API exposing information on different phone
   > Launch fixtures: `php bin/console doctrine:fixtures:load -n --env=test`
 
 - Run all test using `php bin/phpunit`
-- You can generate documentation of test coverage using `php bin/phpunit --coverage-html var/log/test/test-coverage`
+- You can generate documentation of test coverage using `php bin/phpunit --coverage-html coverage.html --coverage-clover=clover.xml`
 - If you want to view this documentation, you can drag and drop the index.html file from the test-coverage folder into your browser
