@@ -12,7 +12,9 @@
                 <p class="card-text" style="text-align:justify;">{{ task.content }}</p>
                 <div class="d-flex justify-content-between">
                     <a href="{{ path('task_toggle', {'id' : task.id }) }}" class="btn btn-success btn-sm">{% if not task.isDone %}Marquer comme faite{% else %}Marquer non terminée{% endif %}</a>
-                    <a href="{{ path('task_delete', {'id' : task.id }) }}" class="btn btn-danger btn-sm pull-right">Supprimer</a>
+                    {% if is_granted("ROLE_ADMIN") or  task.user == app.user%}
+                        <a href="{{ path('task_delete', {'id' : task.id }) }}" class="btn btn-danger btn-sm pull-right">Supprimer</a>
+                     {% endif %}
                 </div>
                 <footer class="blockquote-footer pt-4">Créé le {{ task.createdAt|date("d/m/Y") }}
                     <cite title="Propriétaire" class="text-decoration-underline"> par {{task.user.username|capitalize}}</cite>
